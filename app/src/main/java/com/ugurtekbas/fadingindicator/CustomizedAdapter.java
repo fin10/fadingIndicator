@@ -1,15 +1,16 @@
 package com.ugurtekbas.fadingindicator;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-public class CustomizedAdapter extends PagerAdapter{
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
+
+public class CustomizedAdapter extends PagerAdapter {
 
     private Context mContext;
     private int[] mPics;
@@ -27,27 +28,28 @@ public class CustomizedAdapter extends PagerAdapter{
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == ((RelativeLayout)object);
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return view == object;
     }
 
+    @NonNull
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView ivPics;
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.viewpager_item,container,false);
-        ivPics  =   (ImageView)itemView.findViewById(R.id.ivPager);
+        ivPics = itemView.findViewById(R.id.ivPager);
         ivPics.setImageResource(mPics[position]);
 
         // Add viewpager_item.xml to ViewPager
-        ((ViewPager) container).addView(itemView);
+        container.addView(itemView);
 
         return itemView;
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         // Remove viewpager_item.xml from ViewPager
-        ((ViewPager) container).removeView((RelativeLayout) object);
+        container.removeView((RelativeLayout) object);
     }
 }

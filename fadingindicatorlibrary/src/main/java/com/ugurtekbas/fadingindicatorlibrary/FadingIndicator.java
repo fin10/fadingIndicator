@@ -8,11 +8,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
+
 import java.util.ArrayList;
+
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Classic viewpager indicators with fading effects.
@@ -27,7 +28,8 @@ public class FadingIndicator extends View implements ViewPager.OnPageChangeListe
         InvertedTriangle(3);
 
         private int shapeValue;
-        private Shapes(int value) {
+
+        Shapes(int value) {
             this.shapeValue = value;
         }
 
@@ -205,11 +207,6 @@ public class FadingIndicator extends View implements ViewPager.OnPageChangeListe
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
-    }
-
-    @Override
     public void onPageScrollStateChanged(int state) {
     }
 
@@ -296,7 +293,7 @@ public class FadingIndicator extends View implements ViewPager.OnPageChangeListe
      * @return path object which represent triangle
      */
     public Path getTrianglePath(int inX, int left, int top, int right, int bottom){
-        ArrayList<Point>   pointList = new ArrayList();
+        ArrayList<Point> pointList = new ArrayList<>();
         //Creates points of the triangle
         Point pBeginning    = new Point(inX, bottom);
         //Move to bottom of the triangle
@@ -324,7 +321,7 @@ public class FadingIndicator extends View implements ViewPager.OnPageChangeListe
      * @return path object which represent inverted triangle
      */
     public Path getInvertedTrianglePath(int inX, int left, int top, int right, int bottom){
-        ArrayList<Point>   pointList = new ArrayList();
+        ArrayList<Point> pointList = new ArrayList<>();
         //Creates points of the triangle
         Point pBeginning    = new Point(inX, top);
         pointList.add(pBeginning);

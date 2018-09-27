@@ -2,9 +2,6 @@ package com.ugurtekbas.fadingindicator;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +10,10 @@ import android.view.ViewGroup;
 import com.ugurtekbas.fadingindicatorlibrary.FadingIndicator;
 import com.ugurtekbas.fadingindicatorlibrary.PageChangedListener;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -41,8 +42,8 @@ public class DefaultFragment extends Fragment implements PageChangedListener{
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View fragmentView =  inflater.inflate(R.layout.fragment_default, null);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View fragmentView = inflater.inflate(R.layout.fragment_default, container, false);
         unbinder = ButterKnife.bind(this, fragmentView);
 
         int[] pics = {

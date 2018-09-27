@@ -1,20 +1,21 @@
 package com.ugurtekbas.fadingindicator;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> mFragmentList = new ArrayList<>();
-    private List<String> mFragmentTitleList = new ArrayList<>();
+    private List<Fragment> mFragmentList;
+    private List<String> mFragmentTitleList;
 
-    public ViewPagerAdapter(android.support.v4.app.FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
-        mFragmentList = (List<Fragment>) Arrays.asList(new DefaultFragment(), new CustomizedFragment());
+        mFragmentList = Arrays.asList(new DefaultFragment(), new CustomizedFragment());
         mFragmentTitleList = Arrays.asList("Default","Customized");
     }
 

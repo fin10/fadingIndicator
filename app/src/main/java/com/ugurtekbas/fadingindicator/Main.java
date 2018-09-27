@@ -1,10 +1,11 @@
 package com.ugurtekbas.fadingindicator;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -15,11 +16,13 @@ import butterknife.Unbinder;
  */
 public class Main extends AppCompatActivity {
 
-    private ViewPagerAdapter    mAdapter;
+    private ViewPagerAdapter mAdapter;
     private Unbinder unbinder;
 
-    @BindView(R.id.tabLayout)TabLayout tabLayout;
-    @BindView(R.id.viewPagerMain)ViewPager viewPager;
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
+    @BindView(R.id.viewPagerMain)
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
